@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Viga&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --white: #eff0f4;
+    --ligth-white: #f8f8f8;
+    --green: #73a700;
+    --black-333: #333;
+    --black-555: #555;
+    --salmon: salmon;
+
+    --outer-shadow: 3px 3px 2px #d0d0d0, -3px -3px 2px #f8f8f8;
+    --outer-shadow-0: 0 0 0 #d0d0d0, 0 0 0 #f8f8f8;
+    --inner-shadow: inset 3px 3px 3px #d0d0d0, inset -3px -3px 3px #f8f8f8;
+}
+
+
+body {
+    font-family: 'Viga', sans-serif;
+    background: var(--white);
+}
+
+.gallery-title  {
+    color: var(--black-333);
+}
+
+.button-gallery {
+    padding: 10px;
+    width: 100%;
+}
+
+.button-gallery ul{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 15px;
+}
+
+.button-gallery ul li {
+    list-style: none;
+    padding: 12px 25px;
+    box-shadow: var(--outer-shadow);
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--black-555);
+}
+
+.button-gallery ul li.active {
+   color: var(--green);
+}
+
+.gallery-item {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+.gallery-item .item {
+    padding: 10px 15px;
+    box-shadow: var(--outer-shadow);
+    border-radius: 5px;
+    color: var(--black-333);
+}
+
+.gallery-item .item.show {
+    animation: Fade .5s ease-in-out;
+}
+
+.gallery-item .item.hide {
+    display: none;
+}
+
+.gallery-item .sepatu2 {
+    grid-column: 2/3;
+} 
+
+.gallery-item .item img {
+    width: 100%;
+    transition: .3s ease;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.gallery-item .item img:hover {
+    transform: translateY(-8px);
+}
+
+/* ANIMATION */
+@keyframes Fade {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    } 100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 599px) {
+    .gallery-item {
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .button-gallery ul{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .button-gallery ul li {
+        margin-right: 20px;
+    }
+
+    .gallery-item .sepatu2 {
+        grid-column: 1/1;
+    } 
+    
+    
+}
+
+@media screen and (min-width: 600px) {
+    .gallery-item {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .button-gallery ul{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gallery-item .sepatu2 {
+        grid-column: 1/2;
+    } 
+    
+}
+
+@media screen and (min-width: 800px) {
+    .gallery-item {
+        grid-template-columns: repeat(3,1fr);
+    }
+
+    .button-gallery ul{
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .gallery-item .sepatu2 {
+        grid-column: 2/3;
+    } 
+    
+}
